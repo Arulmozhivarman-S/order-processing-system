@@ -44,13 +44,13 @@ This project simulates how real-world systems (Amazon, Flipkart, DoorDash) proce
 
 
   📦 Microservices Included
-          Service	              Responsibilities	                                            Port
-          Auth Service	        User registration, login, JWT	                                8081
-          Order Service	        Order creation, status management, Kafka producer/consumer	  8082
-          Inventory             Service	Inventory validation, Kafka consumer/producer	        8083
-          Notification          Service	Consumes events & simulates sending notifications	    8084
-          PostgreSQL	          DB for Auth + Order Service	5432
-          Kafka + Zookeeper	    Event backbone	9092 / 2181
+Service	Responsibilities	Port
+Auth Service	User registration, login, JWT	8081
+Order Service	Order creation, status management, Kafka producer/consumer	8082
+Inventory Service	Inventory validation, Kafka consumer/producer	8083
+Notification Service	Consumes events & simulates sending notifications	8084
+PostgreSQL	DB for Auth + Order Service	5432
+Kafka + Zookeeper	Event backbone	9092 / 2181
 
 
 🔑 Tech Stack

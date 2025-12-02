@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/orderdb
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: kafka:9092
+
+jwt:
+  secret: "p7Jk9VgXQm2s4L1nW8zR3tF0uB9eH6qP3vYcT5aK1rUoN7mB4xZ2QwS8F5G0H9J"
+  expiration: 3600000

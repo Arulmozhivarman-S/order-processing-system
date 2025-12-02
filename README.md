@@ -43,14 +43,17 @@ This project simulates how real-world systems (Amazon, Flipkart, DoorDash) proce
 
 
 
-  📦 Microservices Included
-Service	Responsibilities	Port
-Auth Service	User registration, login, JWT	8081
-Order Service	Order creation, status management, Kafka producer/consumer	8082
-Inventory Service	Inventory validation, Kafka consumer/producer	8083
-Notification Service	Consumes events & simulates sending notifications	8084
-PostgreSQL	DB for Auth + Order Service	5432
-Kafka + Zookeeper	Event backbone	9092 / 2181
+ ## Microservices Included
+
+| Service                  | Responsibilities                                      | Port |
+|--------------------------|-------------------------------------------------------|------|
+| **Auth Service**         | User registration, login, JWT auth                    | 8081 |
+| **Order Service**        | Create orders, update status, Kafka producer/consumer | 8082 |
+| **Inventory Service**    | Validate inventory, consume + produce Kafka events    | 8083 |
+| **Notification Service** | Listen to events, send notifications                  | 8084 |
+| **PostgreSQL**           | Database for auth & orders                            | 5432 |
+| **Kafka + Zookeeper**    | Event streaming backbone                           | 9092 / 2181 |
+
 
 
 🔑 Tech Stack
@@ -124,13 +127,14 @@ Kafka runs internally on:  kafka:9092
             📩 Notification sent to user U123: Your order is confirmed!
 
 
-📁 Kafka Topics
+## Kafka Topics
 
-  Topic                       Name	                  Used By	Purpose
-  
-  order-events	              Order → Inventory	      When order is created
-  inventory-events	          Inventory → Order	      Stock confirmation or rejection
-  notification-events	        Order → Notification	  Final status message to user
+| Topic Name            | Published By     | Consumed By          | Purpose                           |
+|-----------------------|------------------|----------------------|-----------------------------------|
+| `order-events`        | Order Service    | Inventory Service    | When a new order is created       |
+| `inventory-events`    | Inventory Service| Order Service        | Inventory confirmation/rejection  |
+| `notification-events` | Order Service    | Notification Service | Notify user about order status    |
+
 
 
 
